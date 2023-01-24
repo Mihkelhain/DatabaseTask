@@ -13,16 +13,19 @@ namespace DatabaseTask.Core.Domain
 
     public class WorkSitesContext : DbContext
     {
-        public DbSet<WorkSites> WorkSites { get; set; }
+        public DbSet<Worksites> WorkSites { get; set; }
     }
-    public class WorkSites
+    public class Worksites
     {
+        
+
         [Key]
         public Guid WorkSiteId { get; set; }
-        public  ConstructionCompany ProjectId { get; set; }
-        public Projects CompletionTime { get; set; }
-        public Employees EmployeeId { get; set; }
-        public Employees FirstName { get; set; }
-        public Employees? Specialistation { get; set; }
+        public  Projects ProjectId { get; set; }
+        public DateTime CompletionTime { get; set; }
+        public string Location { get; set; }
+        public string Equipment { get; set; }
+        public int EmployeesNeeded { get; set; }
+
     }
 }

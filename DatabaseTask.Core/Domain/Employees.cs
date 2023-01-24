@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection.Metadata;
 using Microsoft.EntityFrameworkCore;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace DatabaseTask.Core.Domain
 {
@@ -16,6 +17,7 @@ namespace DatabaseTask.Core.Domain
     {
         public DbSet<Employees> Employees { get; set; }
     }
+
     public class Employees
     {
         [Key]
@@ -23,11 +25,8 @@ namespace DatabaseTask.Core.Domain
         public string FirstName { get; set; }
         public string Lastname { get; set; }
         public string Specialistation { get; set; }
-        [ForeignKey("WorkSiteId")]
-        public IEnumerable<WorkSites> WorkSiteId { get; set; } = new List<WorkSites>();
-
-
-
+        public Projects projectId { get; set; }
+        
     }
 }
 

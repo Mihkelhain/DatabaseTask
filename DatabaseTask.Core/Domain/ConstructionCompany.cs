@@ -20,6 +20,7 @@ namespace DatabaseTask.Core.Domain
         [Key]
         public Guid ProjectId { get; set; }
 
+        public IEnumerable<Projects> Projects { get; set; }
     }
 
 }

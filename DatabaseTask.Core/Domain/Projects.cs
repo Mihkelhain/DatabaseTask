@@ -19,10 +19,12 @@ namespace DatabaseTask.Core.Domain
     public class Projects
     {
         [Key]
-        public ConstructionCompany ProjectId { get; set; }
+        public Guid ProjectId { get; set; }
+        public IEnumerable<Employees> Employees { get; set; }
+        public IEnumerable<Worksites> Worksites { get; set; }
         public DateTime CompletionTime { get; set; }
-        public string ProjectSiteLocation { get; set; }
-        public SqlMoney? Payment { get; set; }
+        public int? Payment { get; set; }
+        public string Manager { get; set; }
     }
 
     

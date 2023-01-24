@@ -14,11 +14,11 @@ namespace DatabaseTask.Data
         public DbSet<Employees> Employees { get; set; }
         public DbSet<Projects> Projects { get; set; }
         public DbSet<ConstructionCompany> ConstructionCompanies { get; set; }
-        public DbSet<WorkSites> WorkSites { get; set; }
+        public DbSet<Worksites> WorkSites { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<WorkSites>().ToTable("WorkSites");
+            builder.Entity<Worksites>().ToTable("WorkSites");
             
 
         }
