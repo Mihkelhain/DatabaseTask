@@ -1,0 +1,63 @@
+
+select * from dbo.Projects
+select * from ConstructionCompanies
+select * from Employees
+select * from WorkSites
+insert into ConstructionCompanies values(NEWID())
+
+insert into Projects values(NEWID(),'2021-05-03','1000','Bob burns','51783496-6578-4C10-A4B9-0FB061FE210D')
+insert into Projects values(NEWID(),'2023-11-24','5331','Bob burns','43ED6A79-78DF-4547-B8FC-2C6888441F53')
+insert into Projects values(NEWID(),'2025-03-10','12000','Jessica Adams','47F7ED0E-0D1B-452C-BF84-3643DB97BAB1')
+insert into Projects values(NEWID(),'2025-04-09','6000','Leeroy Muns','9BA7ACEB-F5A8-4655-B43B-39DF01485674')
+insert into Projects values(NEWID(),'2028-06-27','1200','Em nashall','0F96A3EB-3745-4E25-BA4A-404954AF49DB')
+insert into Projects values(NEWID(),'2030-05-25','50000','Chutulu','74710278-FACB-4C79-B764-45F9CFA64E69')
+insert into Projects values(NEWID(),'2035-09-30','35000','Borbar Kardem','FA3F15E8-D26E-44DC-9D8E-62B773F3E0E1')
+insert into Projects values(NEWID(),'2050-02-16','1200000','Bruce Wayne','EAB8B493-1EBD-411A-9668-A2640751953B')
+insert into Projects values(NEWID(),'2024-01-06','50','Josh Frag','8B69FF1D-C19F-4656-B12E-AC31FDA49379')
+insert into Projects values(NEWID(),'2032-05-16','20000','Parmundel Karossa','793EDD8D-5988-4B00-AB1B-E918680142E5')
+
+insert into Employees values (NEWID(),'Josh','Frag','Electrical Engineer','9DF24F9B-771E-403B-9E44-1E82A44007B0')
+insert into Employees values (NEWID(),'Mason','Charles','','9DF24F9B-771E-403B-9E44-1E82A44007B0')
+insert into Employees values (NEWID(),'Bob','Dylan','Computer Specialist','094A0769-2188-4D3E-8C90-29523EB55517')
+insert into Employees values (NEWID(),'Jason ','Momoa','Sewage Expert','8C2CC575-89E6-4D34-87C5-4719F3EEE273')
+insert into Employees values (NEWID(),'Mons','kalua','Tiling Expert','8C2CC575-89E6-4D34-87C5-4719F3EEE273')
+insert into Employees values (NEWID(),'Klarissa','Newport','','70AB1C6B-9578-47FC-A350-5B84D5C7E003')
+insert into Employees values (NEWID(),'Nellie','Jungenhaus','','126DDC78-6CB8-45C3-9014-6C92FAC5642B')
+insert into Employees values (NEWID(),'Kortul','Pergand','Soil Specialist','E0D74D24-2347-4C97-900C-C8CF001D0D10')
+insert into Employees values (NEWID(),'Mesin','Pele','','9684A5B8-84C7-4A90-91C4-E49F03EF9B1B')
+insert into Employees values (NEWID(),'James','Barley','Electrical Engineer','9684A5B8-84C7-4A90-91C4-E49F03EF9B1B')
+
+insert into WorkSites values (newid(),'9DF24F9B-771E-403B-9E44-1E82A44007B0','2050-02-16','Nõmme','','10')
+insert into WorkSites values (newid(),'094A0769-2188-4D3E-8C90-29523EB55517','2050-02-16','Helsingi','Excavators,PowerTools','15')
+insert into WorkSites values (newid(),'8C2CC575-89E6-4D34-87C5-4719F3EEE273','2032-05-16','Gotland','PowerTools','2')
+insert into WorkSites values (newid(),'70AB1C6B-9578-47FC-A350-5B84D5C7E003','2032-05-16','Mustamäe','Powertools','3')
+insert into WorkSites values (newid(),'B6C30C09-D5DA-4006-8E5F-6B94112FAD9B','2024-01-06','Aarhaus','Dredging Ships','10')
+insert into WorkSites values (newid(),'126DDC78-6CB8-45C3-9014-6C92FAC5642B','2025-04-09','Partumas','Minelayers','15')
+insert into WorkSites values (newid(),'E0D74D24-2347-4C97-900C-C8CF001D0D10','2021-05-03','Riverrun','Explosives','40')
+insert into WorkSites values (newid(),'C0DA75F2-6387-4912-BAC8-D2A71E34E393','2030-05-25','Chicomoztoc ','High Octane Fuel','10')
+insert into WorkSites values (newid(),'D15952A8-0539-484A-8888-D9F92397FF5A','2030-05-25','Sindri','3D Scanning equipment','5')
+insert into WorkSites values (newid(),'9684A5B8-84C7-4A90-91C4-E49F03EF9B1B','2035-09-30','Ismara','Lidar','2')
+
+create procedure DisplayAllTables
+as
+select * from ConstructionCompanies
+select * from Projects
+select * from Employees
+select * from WorkSites
+go;
+
+exec DisplayAllTables
+
+select FirstName,Specialistation
+from Employees
+inner join Projects on Employees.ProjectId=Projects.ProjectId
+
+ SELECT Employees.FirstName, WorkSites.Equipment
+FROM Employees
+LEFT JOIN WorkSites ON Employees.Projectid = WorkSites.ProjectId1
+ORDER BY Employees.FirstName; 
+
+ SELECT Employees.FirstName, WorkSites.Equipment
+FROM Employees
+Right Join WorkSites ON Employees.Projectid = WorkSites.ProjectId1
+ORDER BY Employees.FirstName; 
